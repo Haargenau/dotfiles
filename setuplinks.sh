@@ -1,15 +1,39 @@
 #!/bin/bash
 
-echo "Linking .vimrc"
-rm ~/.vimrc
-ln ./.vimrc ~/.vimrc
+############################## Add dotfiles here ##############################
+declare -a dotfiles=(   ".vimrc"
+                        ".bashrc"
+                        ".tmux.conf"
+                    )
 
-echo "Linking .bashrc"
-rm ~/.bashrc
-ln ./.bashrc ~/.bashrc
+############################# Change nothing here #############################
 
-echo "Linking .tmux.conf"
-rm ~/.tmux.conf
-ln ./.tmux.conf ~/.tmux.conf
+date=$(date +"%Y-%m-%d-%T")
+backup_folder="./backups/backup_$date"
 
+for file in "${dotfiles[@]}"
+do
+    if [ -e "$HOME/$file" ]
+    then
+        if [ ! -L "$HOME/$file" ]
+        then
+            echo "Creating backup of $file"
+            if [ ! -d "./backups" ]
+            then
+                mkdir "./backups"
+            fi
+            
+            if [ ! -d $backup_folder ]
+            then
+                mkdir $backup_folder 
+            fi
+            cp "$HOME/$file" "$backup_folder"
+        fi
+        echo "Removing $file"
+        rm "$HOME/$file"
+    fi
+    
+    echo "Linking $file"
+    ln -s "$PWD/$file" "$HOME/$file"
+done
 

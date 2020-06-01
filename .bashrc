@@ -31,11 +31,11 @@ PS1="$HC$FBLE[\u@\h $FMAG\w$FBLE]$ $RS"
 
 # Automatically start tmux
 # only if an X session is running
-if [[ $DISPLAY ]]; then
-    # If not running interactively, do not do anything
-    [[ $- != *i* ]] && return
-    [[ -z "$TMUX" ]] && exec tmux
-fi
+# if [[ $DISPLAY ]]; then
+#     # If not running interactively, do not do anything
+#     [[ $- != *i* ]] && return
+#     [[ -z "$TMUX" ]] && exec tmux
+# fi
 
 alias ls='ls --color=auto'
 alias ll='ls -la'
