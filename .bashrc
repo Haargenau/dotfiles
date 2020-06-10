@@ -48,6 +48,19 @@ export PATH=$PATH:$HOME/.ghcup/bin/:$HOME/.cabal/bin/
 # Backup the entire installation
 alias sysbackup='rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*","/opt/*"} / /mnt/system_backup/'
 
+# Compress PDFs
+function compresspdf() {
+    if [ -z "$1" ]; then
+        echo "Usage: compresspdf <input.pdf> <output.pdf>";
+        return 1;
+    elif [ -z "$2" ]; then
+        echo "Usage: compresspdf <input.pdf> <output.pdf>";
+        return 1;
+    else
+        gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$2" "$1" 
+    fi
+}
+
 # delete duplicates in bash-histroy
 export HISTCONTROL=ignoreboth:erasedups
 
