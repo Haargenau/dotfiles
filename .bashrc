@@ -42,9 +42,6 @@ alias ll='ls -la'
 alias deen='trans -sl de -tl en'
 alias ende='trans -sl en -tl de'
 
-# Path for ghcup
-export PATH=$PATH:$HOME/.ghcup/bin/:$HOME/.cabal/bin/
-
 # Backup the entire installation
 alias sysbackup='rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*","/opt/*"} / /mnt/system_backup/'
 
