@@ -9,7 +9,7 @@
     set hidden                      "Allow buffers with unsaved changes 
     set showcmd
     set backspace=indent,eol,start
-    set autoindent                  " Match indents on new lines.
+    set autoindent                  "Match indents on new lines.
     set nostartofline
     set ruler
     set cmdheight=1
@@ -19,11 +19,11 @@
 " }
 
 " Search {
-    set ignorecase  " case insensitive search
-    set smartcase   " If there are uppercase letters, become case-sensitive.
-    set incsearch   " live incremental searching
-    set showmatch   " live match highlighting
-    set hlsearch    " highlight matches
+    set ignorecase  "Case insensitive search
+    set smartcase   "If there are uppercase letters, become case-sensitive.
+    set incsearch   "Live incremental searching
+    set showmatch   "Live match highlighting
+    set hlsearch    "Highlight matches
 " }
 
 " Interface {
@@ -33,9 +33,9 @@
 " }
 
 " Backup {
-    set nobackup        " We have vcs, we don't need backups.
-    set nowritebackup   " We have vcs, we don't need backups.
-    set noswapfile      " They're just annoying. Who likes them?
+    set nobackup        "We have vcs, we don't need backups.
+    set nowritebackup   "We have vcs, we don't need backups.
+    set noswapfile      "They're just annoying. Who likes them?
 " }
 
 " Extras {
@@ -44,5 +44,6 @@
     set path+=**
     set wildmenu
     com -nargs=1 -complete=file_in_path Fi tabe | find <args>
+    set esckeys                 "Deactivate ESC delay but break any sequences using ESC in insert mode 
 " }
 
