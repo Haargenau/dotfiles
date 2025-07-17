@@ -4,6 +4,7 @@
 declare -a dotfiles=(   ".vimrc"
                         ".bashrc"
                         ".tmux.conf"
+                        ".screenrc"
                     )
 
 ############################# Change nothing here #############################
