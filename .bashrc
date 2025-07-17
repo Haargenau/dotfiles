@@ -27,7 +27,13 @@ BMAG="\[\033[45m\]" # background magenta
 BCYN="\[\033[46m\]" # background cyan
 BWHT="\[\033[47m\]" # background white
 
-PS1="$HC$FBLE[\u@\h $FMAG\w$FBLE]$ $RS"
+# Different color and sheme when using distrobox containers
+if [ -z "$CONTAINER_ID" ] 
+then
+    PS1="$HC$FBLE[\u@\h $FMAG\w$FBLE]$ $RS"
+else
+    PS1="$HC$FYEL[\u@$CONTAINER_ID $FWHT\w$FYEL]$ $RS"
+fi
 
 # Automatically start tmux
 # only if an X session is running
@@ -60,6 +66,10 @@ function compresspdf() {
 
 # delete duplicates in bash-histroy
 export HISTCONTROL=ignoreboth:erasedups
+
+# set bash history to unlimited
+export HISTFILESIZE=
+export HISTSIZE=
 
 # set vim bindings
 set -o vi
